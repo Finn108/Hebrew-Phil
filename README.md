@@ -67,7 +67,6 @@ To run this fork locally:
 * [Collected wordlists](http://wiki.puzzlers.org/dokuwiki/doku.php?id=solving:wordlists:about:start) of the National Puzzler's League
 * [Crossword theme categories](http://www.cruciverb.com/index.php?action=ezportal;sa=page;p=70)
 
-
 ## License
 Licensed under [the Apache License, v2.0](http://www.apache.org/licenses/LICENSE-2.0) (the 'License').
 
