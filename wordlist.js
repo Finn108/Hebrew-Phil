@@ -141,7 +141,7 @@ function matchFromWordlist(word) {
   const wordLength = word.length;
   const actualLettersInWord = word.replace(/-/g, "").length;
   if (actualLettersInWord < wordLength) { // Don't search if already filled
-    word = word.split(DASH).join("\\w");
+    word = word.split(DASH).join(".");
     const pattern = new RegExp(word);
     let matches = [];
     for (let i = 0; i < wordlist[wordLength].length; i++) {
