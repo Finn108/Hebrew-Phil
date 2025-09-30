@@ -7,8 +7,8 @@ var letterChart;
 var wordChart;
 
 alphabet = [
-  'A','B','C','D','E','F','G','H','I','J','K','L','M',
-  'N','O','P','Q','R','S','T','U','V','W','X','Y','Z'
+  "א","ב","ג","ד","ה","ו","ז","ח","ט","י","כ","ל","מ",
+  "נ","ס","ע","פ","צ","ק","ר","ש","ת"
 ];
 
 class StatChartSpec {
@@ -188,7 +188,8 @@ downChart = new Chart(downChartSpec.ctx, downChartSpec.config);
 class Stats {
   constructor() {
     this.alphabet = alphabet;
-    this.scrabblePoints = [1,3,3,2,1,4,2,4,1,8,5,1,3,1,1,3,10,1,1,1,1,4,4,8,4,10];
+    // New Hebrew points. Subject to change
+    this.scrabblePoints = [2,4,5,3,1,1,8,4,8,1,5,2,2,3,8,5,4,8,4,1,2,1];
     this.letterCounts = new Array(this.alphabet.length).fill(0);
     this.letters = 0;
     this.wordLengths = [...Array(Math.max(xw.rows, xw.cols)).keys()].map(x => ++x);

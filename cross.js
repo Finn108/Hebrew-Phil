@@ -18,13 +18,13 @@
 const BLOCK = ".";
 const DASH = "-";
 const BLANK = " ";
-const ACROSS = "across";
-const DOWN = "down";
+const ACROSS = "אופקי";
+const DOWN = "אנכי";
 const DEFAULT_SIZE = 15;
 const DEFAULT_SUNDAY_SIZE = 21;
-const DEFAULT_TITLE = "Untitled";
-const DEFAULT_AUTHOR = "Anonymous";
-const DEFAULT_CLUE = "(blank clue)";
+const DEFAULT_TITLE = "ללא שם";
+const DEFAULT_AUTHOR = "אנונימי";
+const DEFAULT_CLUE = "רמז ריק";
 const DEFAULT_NOTIFICATION_LIFETIME = 10; // in seconds
 
 let history = [];
@@ -507,8 +507,8 @@ function updateCluesUI() {
   // Otherwise, assign values
   const acrossCell = getGridSquare(current.row, current.acrossStartIndex);
   const downCell = getGridSquare(current.downStartIndex, current.col);
-  acrossClueNumber.innerHTML = acrossCell.querySelector(".label").innerHTML + "a.";
-  downClueNumber.innerHTML = downCell.querySelector(".label").innerHTML + "d.";
+  acrossClueNumber.innerHTML = acrossCell.querySelector(".label").innerHTML + " אופקי:";
+  downClueNumber.innerHTML = downCell.querySelector(".label").innerHTML + " אנכי:";
   acrossClueText.innerHTML = xw.clues[[current.row, current.acrossStartIndex, ACROSS]];
   downClueText.innerHTML = xw.clues[[current.downStartIndex, current.col, DOWN]];
 }
@@ -1007,7 +1007,15 @@ function enterRebus(e) {
   let activeCell = getGridSquare(current.row, current.col);
   let fill = activeCell.querySelector(".fill");
   let oldContent = xw.fill[current.row][current.col];
-  xw.fill[current.row][current.col] = rebusInput.value.toUpperCase();
+
+  // Handle Hebrew characters in rebus (keep them as-is, don't uppercase)
+  let inputValue = rebusInput.value;
+  if (/[\u0590-\u05FF]/.test(inputValue)) {
+    xw.fill[current.row][current.col] = inputValue;
+  } else {
+    xw.fill[current.row][current.col] = inputValue.toUpperCase();
+  }
+
   if (xw.fill[current.row][current.col].length > 1) {
     fill.classList.add("rebus");
   }
@@ -1043,7 +1051,7 @@ function enterRebus(e) {
   updateUI();
   document.getElementById("enter-rebus-menu").classList.add("hidden");
   if (current.direction == ACROSS) {
-    e = new KeyboardEvent("keydown", {"key": ARROW_RIGHT});
+    e = new KeyboardEvent("keydown", {"key": ARROW_LEFT});
   } else {
     e = new KeyboardEvent("keydown", {"key": ARROW_DOWN});
   }
@@ -1074,7 +1082,7 @@ function toggleCircle(useCircle = true) {
   updateUI();
   actionTimeline.record(new Action("toggleCircle", state));
   if (current.direction == ACROSS) {
-    e = new KeyboardEvent("keydown", {"key": ARROW_RIGHT});
+    e = new KeyboardEvent("keydown", {"key": ARROW_LEFT}); // Changed from RIGHT to LEFT for RTL
   } else {
     e = new KeyboardEvent("keydown", {"key": ARROW_DOWN});
   }
@@ -1118,9 +1126,4 @@ function redo() {
 
 function randomNumber(min, max) {
   return Math.floor(Math.random() * max) + min;
-}
-
-function randomLetter() {
-  let alphabet = "AAAAAAAAABBCCDDDDEEEEEEEEEEEEFFGGGHHIIIIIIIIIJKLLLLMMNNNNNNOOOOOOOOPPQRRRRRRSSSSSSTTTTTTUUUUVVWWXYYZ";
-  return alphabet[randomNumber(0, alphabet.length)];
 }

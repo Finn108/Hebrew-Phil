@@ -11,7 +11,7 @@ const DIR_DOWN = 1;
  * Bitmap helpers.  We store viable characters as a bit-per-letter; since
  * we have 26 possible letters we can fit it all in a u32.
  */
-const ALL_CHARS = "abcdefghijklmnopqrstuvwxyz";
+const ALL_CHARS = "אבגדהוזחטיכלמנסעפצקרשת";
 const ALL_CHARS_BITMAP = (1 << (ALL_CHARS.length + 1)) - 1;
 const ALL_CHARS_BASE = ALL_CHARS.charCodeAt(0);
 

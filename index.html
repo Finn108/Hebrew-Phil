@@ -11,7 +11,7 @@
   <div id="header">
     <h1><span id="puzzle-title" class="editable" contenteditable="true"
       onkeydown="suppressEnterKey(event)" onfocusout="setTitle()">Untitled</span>
-     by <span id="puzzle-author" class="editable" contenteditable="true"
+     מאת <span id="puzzle-author" class="editable" contenteditable="true"
       onkeydown="suppressEnterKey(event)" onfocusout="setAuthor()">Anonymous</span></h1>
   </div>
 
@@ -19,14 +19,14 @@
 
     <div class="section">
       <div id="new-grid-menu" class="menu hidden" onmouseleave="hideMenu(event)">
-        <h4>New blank puzzle:</h4>
-        <button id="new-grid-15" class="default" type="button" data-tooltip="NYT daily (15×15)" onmouseup="setDefault(event)" onclick="createNewPuzzle(15,15)">
+        <h4>לוח חדש:</h4>
+        <button id="new-grid-15" class="default" type="button" data-tooltip="קלאסי (15×15)" onmouseup="setDefault(event)" onclick="createNewPuzzle(15,15)">
           <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
         </button>
-        <button id="new-grid-21" type="button" data-tooltip="NYT Sunday (21×21)" onmouseup="setDefault(event)" onclick="createNewPuzzle(21,21)">
+        <button id="new-grid-21" type="button" data-tooltip="מורחב (21×21)" onmouseup="setDefault(event)" onclick="createNewPuzzle(21,21)">
           <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
         </button>
-        <button id="new-grid-custom" type="submit" data-tooltip="Custom:" form="custom-grid-form" onmouseup="setDefault(event)">
+        <button id="new-grid-custom" type="submit" data-tooltip="אחר:" form="custom-grid-form" onmouseup="setDefault(event)">
           <i class="fa fa-plus fa-fw" aria-hidden="true"></i>
         </button>
         <form id="custom-grid-form" action="javascript:void(0);" onsubmit="createNewCustomPuzzle()">
@@ -43,7 +43,7 @@
       </button>
       <input id="open-puzzle-input" class="hidden" type="file" accept=".json,.txt,.xw,.puz"/>
       <div id="export-menu" class="menu hidden" onmouseleave="hideMenu(event)">
-        <h4>Export as:</h4>
+        <h4>ייצוא כ:</h4>
         <button id="export-JSON" class="default" type="button" data-tooltip="Phil puzzle (.xw)" onmouseup="setDefault(event)" onclick="writeFile('xw')">
           <i class="fa fa-download fa-fw" aria-hidden="true"></i>
         </button>
@@ -177,22 +177,22 @@
   <div id="stats">
     <div id="charts">
       <div class="chart">
-        <div id="letter-chart-title" class="chart-title">Letters</div>
+        <div id="letter-chart-title" class="chart-title">אותיות</div>
         <canvas id="letter-chart" width="100" height="400"></canvas>
       </div>
       <div class="chart">
-        <div id="word-chart-title" class="chart-title">Word lengths</div>
+        <div id="word-chart-title" class="chart-title">אורכי מילים</div>
         <canvas id="word-chart" width="100" height="400"></canvas>
       </div>
     </div>
     <table id="stats-table">
-      <tr> <td>Words: </td> <td id="stats-words" class="stats-number"></td> </tr>
-      <tr> <td>Mean word length: </td> <td id="stats-avg-word-length" class="stats-number"></td> </tr>
-      <tr> <td>Blocks: </td> <td id="stats-blocks" class="stats-number"></td> </tr>
-      <tr class="hidden"> <td>Fully connected squares: </td> <td id="stats-fully-connected-squares" class="stats-number"></td> </tr>
-      <tr> <td>Open squares: </td> <td id="stats-open-squares" class="stats-number"></td> </tr>
-      <tr> <td>Letters: </td> <td id="stats-letters" class="stats-number"></td> </tr>
-      <tr> <td>Mean Scrabble points: </td> <td id="stats-avg-scrabble-points" class="stats-number"></td> </tr>
+      <tr> <td>מילים: </td> <td id="stats-words" class="stats-number"></td> </tr>
+      <tr> <td>אורך ממוצע (Mean): </td> <td id="stats-avg-word-length" class="stats-number"></td> </tr>
+      <tr> <td>בלוקים: </td> <td id="stats-blocks" class="stats-number"></td> </tr>
+      <tr class="hidden"> <td>ריבועים מחוברים: </td> <td id="stats-fully-connected-squares" class="stats-number"></td> </tr>
+      <tr> <td>ריבועים פתוחים: </td> <td id="stats-open-squares" class="stats-number"></td> </tr>
+      <tr> <td>אותיות: </td> <td id="stats-letters" class="stats-number"></td> </tr>
+      <tr> <td>ממוצע (Mean) ניקוד שבץ נא: </td> <td id="stats-avg-scrabble-points" class="stats-number"></td> </tr>
     </table>
   </div>
 
@@ -220,38 +220,34 @@
 
   <div id="mobile-keyboard">
     <div class="row">
-      <div class="key" onclick="mobileKeyboardHandler('q')">q</div>
-      <div class="key" onclick="mobileKeyboardHandler('w')">w</div>
-      <div class="key" onclick="mobileKeyboardHandler('e')">e</div>
-      <div class="key" onclick="mobileKeyboardHandler('r')">r</div>
-      <div class="key" onclick="mobileKeyboardHandler('t')">t</div>
-      <div class="key" onclick="mobileKeyboardHandler('y')">y</div>
-      <div class="key" onclick="mobileKeyboardHandler('u')">u</div>
-      <div class="key" onclick="mobileKeyboardHandler('i')">i</div>
-      <div class="key" onclick="mobileKeyboardHandler('o')">o</div>
-      <div class="key" onclick="mobileKeyboardHandler('p')">p</div>
+      <div class="key" onclick="mobileKeyboardHandler('ק')">ק</div>
+      <div class="key" onclick="mobileKeyboardHandler('ר')">ר</div>
+      <div class="key" onclick="mobileKeyboardHandler('א')">א</div>
+      <div class="key" onclick="mobileKeyboardHandler('ט')">ט</div>
+      <div class="key" onclick="mobileKeyboardHandler('ו')">ו</div>
+      <div class="key" onclick="mobileKeyboardHandler('פ')">פ</div>
     </div>
     <div class="row">
-      <div class="key" onclick="mobileKeyboardHandler('a')">a</div>
-      <div class="key" onclick="mobileKeyboardHandler('s')">s</div>
-      <div class="key" onclick="mobileKeyboardHandler('d')">d</div>
-      <div class="key" onclick="mobileKeyboardHandler('f')">f</div>
-      <div class="key" onclick="mobileKeyboardHandler('g')">g</div>
-      <div class="key" onclick="mobileKeyboardHandler('h')">h</div>
-      <div class="key" onclick="mobileKeyboardHandler('j')">j</div>
-      <div class="key" onclick="mobileKeyboardHandler('k')">k</div>
-      <div class="key" onclick="mobileKeyboardHandler('l')">l</div>
+      <div class="key" onclick="mobileKeyboardHandler('ש')">ש</div>
+      <div class="key" onclick="mobileKeyboardHandler('ד')">ד</div>
+      <div class="key" onclick="mobileKeyboardHandler('ג')">ג</div>
+      <div class="key" onclick="mobileKeyboardHandler('כ')">כ</div>
+      <div class="key" onclick="mobileKeyboardHandler('ע')">ע</div>
+      <div class="key" onclick="mobileKeyboardHandler('י')">י</div>
+      <div class="key" onclick="mobileKeyboardHandler('ח')">ח</div>
+      <div class="key" onclick="mobileKeyboardHandler('ל')">ל</div>
       <div class="key" onclick="mobileKeyboardHandler('⌫')">⌫</div>
     </div>
     <div class="row">
       <div class="key" onclick="mobileKeyboardHandler('␣')">␣</div>
-      <div class="key" onclick="mobileKeyboardHandler('z')">z</div>
-      <div class="key" onclick="mobileKeyboardHandler('x')">x</div>
-      <div class="key" onclick="mobileKeyboardHandler('c')">c</div>
-      <div class="key" onclick="mobileKeyboardHandler('v')">v</div>
-      <div class="key" onclick="mobileKeyboardHandler('b')">b</div>
-      <div class="key" onclick="mobileKeyboardHandler('n')">n</div>
-      <div class="key" onclick="mobileKeyboardHandler('m')">m</div>
+      <div class="key" onclick="mobileKeyboardHandler('ז')">ז</div>
+      <div class="key" onclick="mobileKeyboardHandler('ס')">ס</div>
+      <div class="key" onclick="mobileKeyboardHandler('ב')">ב</div>
+      <div class="key" onclick="mobileKeyboardHandler('ה')">ה</div>
+      <div class="key" onclick="mobileKeyboardHandler('נ')">נ</div>
+      <div class="key" onclick="mobileKeyboardHandler('מ')">מ</div>
+      <div class="key" onclick="mobileKeyboardHandler('צ')">צ</div>
+      <div class="key" onclick="mobileKeyboardHandler('ת')">ת</div>
       <div class="key" onclick="mobileKeyboardHandler('.')">.</div>
       <div class="key" onclick="mobileKeyboardHandler('👁️')">👁️</div>
     </div>

@@ -51,6 +51,8 @@ body {
   margin: 5px;
   background: var(--background-color);
   color: var(--primary-color);
+  direction: rtl;
+  text-align: right;
 }
 
 h1 {
@@ -170,7 +172,7 @@ h1 {
 
 #header {
   /*width: 885px;*/
-  margin-left: 38px;
+  margin-right: 38px;
   min-height: 36px;
 }
 
@@ -197,7 +199,7 @@ kbd {
 
 /* #grid-container {
   width: auto;
-  float: left;
+  float: right;
   margin-bottom: 10px;
 } */
 
@@ -280,8 +282,8 @@ kbd {
 #sidebar {
   width: 220px;
   height: 550px;
-  float: left;
-  margin-left: 8px;
+  float: right;
+  margin-right: 8px;
 }
 
 #sidebar .current-word {
@@ -331,8 +333,8 @@ kbd {
   width: 32px;
   margin: 0;
   padding: 0;
-  margin-right: 6px;
-  float: left;
+  margin-left: 6px;
+  float: right;
 }
 
 #toolbar .section {
@@ -416,7 +418,7 @@ kbd {
   min-width: 200px;
   background: var(--background-color);
   position: absolute;
-  left: 45px;
+  right: 45px;
   z-index: 400;
   border-top: 3px solid var(--secondary-color);
   box-shadow: 3px 3px 6px 0px var(--toolbar-shadow-color);
@@ -443,32 +445,36 @@ kbd {
 
 #new-grid-custom {
   display:inline !important;
+  text-align: right;
 }
 
 #new-grid-custom:after {
   min-width: 50px !important;
+  text-align: right;
 }
 
 #custom-grid-form {
   margin: 0px 0px 0px 60px;
   display: inline;
+  text-align: left;
 }
 
 #custom-grid-form input {
-  width: 35px;
+  width: 150px;
+  text-align: left;
 }
 
 #toolbar .menu button:after {
   content: attr(data-tooltip);
-  margin: 0px 0 4px -8px;
+  margin: 0px 0 4px 8px;
   padding: 8px 4px 9px 8px;
   min-width: 160px;
-  text-align: left;
+  text-align: right;
   border-radius: 4px;
   /*color: var(--secondary-color);*/
   font-size: 9pt;
   position: absolute;
-  left: 110%;
+  right: 110%;
   top: 0;
   white-space: nowrap;
 }
@@ -515,7 +521,7 @@ kbd {
 }
 
 #matches-charts {
-  float: left;
+  float: right;
   height: 550px;
 }
 
@@ -529,8 +535,8 @@ kbd {
 }
 
 #stats {
-  float: left;
-  margin-left: 8px;
+  float: right;
+  margin-right: 8px;
 }
 
 #stats .chart {
@@ -538,10 +544,10 @@ kbd {
 }
 
 #stats .chart-title {
-  text-align: left;
+  text-align: right;
   color: var(--secondary-color);
   font-weight: 300;
-  margin-left: 6px;
+  margin-right: 6px;
 }
 
 #stats table {
@@ -630,7 +636,7 @@ kbd {
   }
   #grid-container {
     width: auto;
-    float: left;
+    float: right;
     margin-bottom: 10px;
   }
   #grid td {
@@ -714,7 +720,7 @@ kbd {
     }
     .label {
       font-size: 5px;
-      left: 1px;
+      right: 1px;
     }
     .rebus {
       font-size: 3px;

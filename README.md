@@ -1,4 +1,4 @@
-# Phil, a crossword maker
+# Phil, a crossword maker (Hebrew RTL version)
 
 <img src="images/screenshot.png">
 

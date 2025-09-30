@@ -1,6 +1,6 @@
 const letterKeys = [
-  "a","b","c","d","e","f","g","h","i","j","k","l","m",
-  "n","o","p","q","r","s","t","u","v","w","x","y","z"
+  "א","ב","ג","ד","ה","ו","ז","ח","ט","י","כ","ל","מ",
+  "נ","ס","ע","פ","צ","ק","ר","ש","ת"
 ];
 const ARROW_LEFT = "ArrowLeft";
 const ARROW_RIGHT = "ArrowRight";
@@ -31,7 +31,7 @@ function mouseHandler(e) {
 
 function keyboardHandler(e) {
   // console.log(e.key);
-  if (e.key.toLowerCase() == "z" && (e.ctrlKey || e.metaKey)) {
+  if ((e.key.toLowerCase() == "z" || e.key.toLowerCase() == "ז") && (e.ctrlKey || e.metaKey)) {
     if (e.shiftKey) {
       redo();
     } else {
@@ -52,7 +52,10 @@ function keyboardHandler(e) {
 
   if (letterKeys.includes(e.key.toLowerCase()) || e.key == SPACE) {
     let oldContent = xw.fill[current.row][current.col];
-    xw.fill[current.row][current.col] = e.key.toUpperCase();
+    let inputChar = e.key;
+
+    xw.fill[current.row][current.col] = inputChar;
+
     activeCell.querySelector(".fill").classList.remove("rebus");
     if (oldContent == BLOCK) {
       if (isSymmetrical) {
