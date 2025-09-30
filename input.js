@@ -9,6 +9,7 @@ const ARROW_DOWN = "ArrowDown";
 const arrowKeys = [ARROW_LEFT, ARROW_RIGHT, ARROW_UP, ARROW_DOWN];
 const ENTER = "Enter";
 const DELETE = "Backspace";
+const DELETE2 = "Delete";
 const ESCAPE = "Escape";
 const BACKTICK = "`";
 const SPACE = " ";
@@ -92,7 +93,7 @@ function keyboardHandler(e) {
   if (e.key == ENTER) {
       current.direction = (current.direction == ACROSS) ? DOWN : ACROSS;
   }
-  if (e.key == DELETE) {
+  if (e.key == DELETE || e.key == DELETE2) {
     e.preventDefault();
     let oldContent = xw.fill[current.row][current.col];
     xw.fill[current.row][current.col] = BLANK;
